@@ -28,7 +28,8 @@ namespace SalesWebMVCNew.Models
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
 
-        [Display(Name = "Base Salary")]
+        [Display(Name = "Department")]
+        [Required(ErrorMessage = "{0} required")]
         public int DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 

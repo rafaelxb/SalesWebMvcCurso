@@ -1,11 +1,5 @@
 ﻿using SalesWebMVCNew.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SalesWebMVCNew.Services.Exceptions;
-using SalesWebMVCNew.Models;
 using SalesWebMVCNew.Services.Exceptions;
 using SalesWebMVCNew.Data;
 
@@ -46,7 +40,7 @@ namespace SalesWebMvc.Services
             }
             catch (DbUpdateException e)
             {
-                //throw new IntegrityException("Can't delete seller because he/she has sales");
+                throw new IntegrityException("Can't delete seller because he/she has sales");
             }
         }
 
