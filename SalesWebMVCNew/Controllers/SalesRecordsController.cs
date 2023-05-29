@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SalesWebMVCNew.Services;
 
 namespace SalesWebMVCNew.Controllers
 {
     public class SalesRecordsController : Controller
     {
-       // private readonly SalesRecordService _salesRecordService;
+       private readonly SalesRecordService _salesRecordService;
 
-       /* public SalesRecordsController(SalesRecordService salesRecordService)
+       public SalesRecordsController(SalesRecordService salesRecordService)
         {
             _salesRecordService = salesRecordService;
-        }*/
+        }
 
         public IActionResult Index()
         {
@@ -28,9 +29,8 @@ namespace SalesWebMVCNew.Controllers
             }
             ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
             ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
-            //var result = await _salesRecordService.FindByDateAsync(minDate, maxDate);
-            //return View(result);
-            return View();
+            var result = await _salesRecordService.FindByDateAsync(minDate, maxDate);
+            return View(result);
 
         }
 

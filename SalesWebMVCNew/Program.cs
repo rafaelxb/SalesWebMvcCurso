@@ -18,9 +18,8 @@ builder.Services.AddDbContextPool<SalesWebMVCNewContext>(options => options.UseM
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<SeedingService>();
-
 builder.Services.AddScoped<SellerService>();
-
+builder.Services.AddScoped<SalesRecordService>();
 builder.Services.AddScoped<DepartmentService>();
 
 var app = builder.Build();
